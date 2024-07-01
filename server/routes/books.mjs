@@ -83,13 +83,13 @@
  *       201:
  *         description: Book created successfully
  *       400:
- *         description: Bad request
- *       401:
  *         description: Required fields are missing.
+ *       404:
+ *         description: Not found
  *       500:
  *         description: Internal Server Error
  * /books/{user_id}:
- *    get:
+ *   get:
  *     summary: Get all books of a user
  *     tags: [Books]
  *     parameters:
@@ -110,6 +110,54 @@
  *                          $ref: '#/components/schemas/Books'
  *      500:
  *          description: Internal Server Error
+ * /books/update:
+ *   put:
+ *     summary: Update a book
+ *     tags: [Books]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *          application/json:
+ *           schema:
+ *             example:
+ *              user_id: 1
+ *              book_id: 1
+ *              title: Introduction to Python
+ *              author: David Baez-Lopez,David Alfredo Baez Villegas
+ *              description: Programming with Python for beginners
+ *              category: IT
+ *              publisher: Chapman and Hall/CRC
+ *              release_year: 2024
+ *     responses:
+ *      200:
+ *         description: Book updated successfully
+ *      400:
+ *         description: User id and book id are required.
+ *      404:
+ *        description: Not found
+ *      500:
+ *        description: Internal Server Error
+ * /books/delete:
+ *    delete:
+ *     summary: Delete a book
+ *     tags: [Books]
+ *     requestBody:
+ *      required: true
+ *      content:
+ *          application/json:
+ *           schema:
+ *             example:
+ *              user_id: 1
+ *              book_id: 1
+ *    responses:
+ *      200:
+ *        description: Book deleted successfully
+ *      400:
+ *        description: User id and book id are required.
+ *      404:
+ *        description: Not found
+ *      500:
+ *       description: Internal Server Error
  */
 
 import { Router } from "express";
@@ -133,7 +181,7 @@ booksRouter.post("/create", async (req, res) => {
 
   // Validate if all required fields are provided
   if (!title || !author || !category || !release_year || !user_id) {
-    return res.status(401).json({
+    return res.status(400).json({
       message: "Required fields are missing.",
     });
   }
@@ -159,8 +207,8 @@ booksRouter.post("/create", async (req, res) => {
     );
 
     if (result.rowCount === 0) {
-      return res.status(400).json({
-        message: "Bad request",
+      return res.status(404).json({
+        message: "Not found",
       });
     }
 
@@ -239,8 +287,8 @@ booksRouter.put("/update", async (req, res) => {
     );
 
     if (result.rowCount === 0) {
-      return res.status(400).json({
-        message: "Bad request",
+      return res.status(404).json({
+        message: "Not found",
       });
     }
     return res.status(200).json({
@@ -272,8 +320,8 @@ booksRouter.delete("/delete", async (req, res) => {
     );
 
     if (result.rowCount === 0) {
-      return res.status(400).json({
-        message: "Bad request",
+      return res.status(404).json({
+        message: "Not found",
       });
     }
     return res.status(200).json({
