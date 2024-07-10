@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import { AuthProvider } from "./contexts/authentication";
 import Navbar from './components/Navbar';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 /*
  <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -11,16 +12,19 @@ import LoginPage from './pages/LoginPage';
 */
 function App() {
   return (
+    <div className='d-block'>
       <BrowserRouter>
         <AuthProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage/>} />
+          <Route path="/register" element={<RegisterPage/>} />
           <Route path="*" element={<LoginPage/>} />
         </Routes>
         </AuthProvider>
       </BrowserRouter>
+    </div>
   )
 }
 

@@ -51,7 +51,7 @@ export default function Navbar() {
             <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link" >
+                <Link className="nav-link" to={"/register"} >
                   Sign up
                 </Link>
               </li>
