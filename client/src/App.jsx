@@ -5,6 +5,7 @@ import { AuthProvider } from "./contexts/authentication";
 import Navbar from './components/Navbar';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import MyCollectionPage from './pages/MyCollectionPage';
 /*
  <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
+          <Route path="/collection" element={<MyCollectionPage/>} />
           <Route path="*" element={<LoginPage/>} />
         </Routes>
         </AuthProvider>
