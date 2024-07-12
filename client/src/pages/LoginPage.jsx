@@ -9,24 +9,24 @@ export default function LoginPage() {
           <div className="card border-0 shadow rounded-3 my-5">
             <div className="card-body p-4 p-sm-5">
               <h5 className="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
-              <form>
-                <div className="form-floating mb-3">
+              <htmlForm>
+                <div className="htmlForm-floating mb-3">
                   <input
                     type="text"
-                    className="form-control"
+                    className="htmlForm-control"
                     id="floatingInput"
                     placeholder="Username"
                   />
-                  <label for="floatingInput">Username</label>
+                  <label htmlFor="floatingInput">Username</label>
                 </div>
-                <div className="form-floating mb-3">
+                <div className="htmlForm-floating mb-3">
                   <input
                     type="password"
-                    className="form-control"
+                    className="htmlForm-control"
                     id="floatingPassword"
                     placeholder="Password"
                   />
-                  <label for="floatingPassword">Password</label>
+                  <label htmlFor="floatingPassword">Password</label>
                 </div>
                 <div className="d-grid">
                   <button
@@ -36,7 +36,7 @@ export default function LoginPage() {
                     Sign in
                   </button>
                 </div>               
-              </form>
+              </htmlForm>
             </div>
           </div>
         </div>

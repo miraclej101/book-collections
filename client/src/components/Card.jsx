@@ -21,7 +21,7 @@ export default function Card(props) {
             Delete
           </a>
           <a className="btn btn-outline-success mt-auto" href="#">
-            Modify
+            Update
           </a>
         </div>
       </div>

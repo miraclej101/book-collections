@@ -6,23 +6,23 @@ export default function RegisterPage() {
           <div className="card border-0 rounded-3 shadow-lg">
             <div className="card-body p-4">
               <div className="text-center">
-                <div className="h1 fw-light">Register Form</div>
+                <div className="h1 fw-light">Register htmlForm</div>
                 <p className="mb-4 text-muted">
                     Register to be a member of this page
                 </p>
               </div>
 
-              <form id="contactForm">
-                <div className="form-floating mb-3">
+              <htmlForm id="contacthtmlForm">
+                <div className="htmlForm-floating mb-3">
                   <input
-                    className="form-control"
+                    className="htmlForm-control"
                     id="firstname"
                     type="text"
                     placeholder="First name"
                     required="required"
                     aria-describedby="firstnameValidation"
                   />
-                  <label for="firstname">First name</label>
+                  <label htmlFor="firstname">First name</label>
                   <div
                     id="firstnameValidation"
                     className="invalid-feedback"
@@ -30,16 +30,16 @@ export default function RegisterPage() {
                     First name is required.
                   </div>
                 </div>
-                <div className="form-floating mb-3">
+                <div className="htmlForm-floating mb-3">
                   <input
-                    className="form-control"
+                    className="htmlForm-control"
                     id="lastname"
                     type="text"
                     placeholder="Last name"
                     required="required"
                     aria-describedby="lastnameValidation"
                   />
-                  <label for="lastname">Last name</label>
+                  <label htmlFor="lastname">Last name</label>
                   <div
                   id="lastnameValidation"
                     className="invalid-feedback"
@@ -47,16 +47,16 @@ export default function RegisterPage() {
                     Last name is required.
                   </div>
                 </div>
-                <div className="form-floating mb-3">
+                <div className="htmlForm-floating mb-3">
                   <input
-                    className="form-control"
+                    className="htmlForm-control"
                     id="username"
                     type="text"
                     placeholder="Username"
                     required="required"
                     aria-describedby="usernameValidation"
                   />
-                  <label for="username">Username</label>
+                  <label htmlFor="username">Username</label>
                   <div
                   id="usernameValidation"
                     className="invalid-feedback"
@@ -64,16 +64,16 @@ export default function RegisterPage() {
                     Username is required.
                   </div>
                 </div>
-                <div className="form-floating mb-3">
+                <div className="htmlForm-floating mb-3">
                   <input
-                    className="form-control"
+                    className="htmlForm-control"
                     id="password"
                     type="password"
                     placeholder="Password"
                     required="required"
                     aria-describedby="passwordValidation"
                   />
-                  <label for="password">Password</label>
+                  <label htmlFor ="password">Password</label>
                   <div
                   id="passwordValidation"
                     className="invalid-feedback"
@@ -100,7 +100,7 @@ export default function RegisterPage() {
                     Submit
                   </button>
                 </div>
-              </form>
+              </htmlForm>
             </div>
           </div>
         </div>

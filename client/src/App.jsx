@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import CollectionPage from './pages/CollectionPage';
+import BookPage from './pages/BookPage';
 /*
  <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -22,6 +23,7 @@ function App() {
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
           <Route path="/collection" element={<CollectionPage/>} />
+          <Route path="/book/update/:bookId" element={<BookPage />} />
           <Route path="*" element={<LoginPage/>} />
         </Routes>
         </AuthProvider>
