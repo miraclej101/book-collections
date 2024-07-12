@@ -18,7 +18,7 @@ export default function Card(props) {
       <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
         <div className="text-center">
           <a className="btn btn-outline-danger mt-auto me-5" href="#">
-            Delete
+            Remove
           </a>
           <a className="btn btn-outline-success mt-auto" href="#">
             Update
