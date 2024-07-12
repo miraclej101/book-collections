@@ -24,6 +24,7 @@ export function AuthProvider({children}) {
       ...state,
       user: userDataFromToken,
     });
+    return result.status;
    // navigate("/");
   };
 

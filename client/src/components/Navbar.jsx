@@ -3,7 +3,7 @@ import { useAuth } from "../contexts/authentication";
 
 export default function Navbar() {
   const { isAuthenticated, logout } = useAuth();
-
+  
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
@@ -30,17 +30,17 @@ export default function Navbar() {
             <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" >
+                <Link className="nav-link" to={"/collection"}>
                   My collection
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link">
+                <Link className="nav-link" to={""}>
                   Add a book
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <button className="btn btn-outline-danger" onClick={() => {logout();}} >
+                <button className="btn btn-outline-danger" onClick={logout} >
                   Sign out
                 </button>
               </li>
