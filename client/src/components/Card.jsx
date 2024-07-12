@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Card(props) {
 
     const { book } = props;
@@ -20,9 +22,9 @@ export default function Card(props) {
           <a className="btn btn-outline-danger mt-auto me-5" href="#">
             Remove
           </a>
-          <a className="btn btn-outline-success mt-auto" href="#">
+          <Link className="btn btn-outline-success mt-auto" to={`/collection/update/${book.book_id}`}>
             Update
-          </a>
+          </Link>
         </div>
       </div>
     </div>

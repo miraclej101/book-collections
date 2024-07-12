@@ -19,7 +19,7 @@ function App() {
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
           <Route path="/collection" element={<CollectionPage/>} />
-          <Route path="/book/update/:bookId" element={<BookPage />} />
+          <Route path="/collection/update/:bookId" element={<BookPage />} />
           <Route path="*" element={<LoginPage/>} />
         </Routes>
         </AuthProvider>

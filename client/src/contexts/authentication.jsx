@@ -21,6 +21,7 @@ export function AuthProvider({children}) {
         const token =result.data.token;
         localStorage.setItem("token", token);
         const userDataFromToken = jwtDecode(token);
+        console.log("userDataFromToken : ",userDataFromToken);
         setState({
           ...state,
           user: userDataFromToken,

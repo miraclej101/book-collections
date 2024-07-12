@@ -126,7 +126,7 @@
  *              application/json:
  *                  schema:
  *                     type: object
- *                     properties: 
+ *                     properties:
  *                         data:
  *                             type: array
  *                             items:
@@ -138,6 +138,47 @@
  *                  schema:
  *                     example:
  *                        message: Internal Server Error
+ * /books/{user_id}/{book_id}:
+ *   get:
+ *     summary: Get a book by user id and book id
+ *     tags: [Books]
+ *     parameters:
+ *      - in: path
+ *        name: user_id
+ *        schema:
+ *          type: integer
+ *        required: true
+ *        description: The user id who owns the book
+ *      - in: path        
+ *        name:  book_id
+ *        schema:
+ *          type: integer
+ *        required: true
+ *        description: The book id
+ *     responses:
+ *      200:
+ *          description: The book of the user
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                     type: object
+ *                     properties:
+ *                         data:
+ *                          $ref: '#/components/schemas/Books'
+ *      404:
+ *          description: Not found a required book
+ *          content:
+ *              application/json:
+ *                 schema:
+ *                    example:
+ *                      message: Not found
+ *      500:
+ *          description: Internal Server Error
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                    example:
+ *                      message: Internal Server Error
  * /books/update:
  *   put:
  *     summary: Update a book
@@ -309,6 +350,31 @@ booksRouter.get("/:user_id", async (req, res) => {
       message: "Internal Server Error",
     });
   }
+});
+
+booksRouter.get("/:user_id/:book_id", async (req, res) => {
+  const user_id = req.params.user_id;
+  const book_id = req.params.book_id;
+  let book;
+  try {
+    book = await connectionPool.query(
+      `SELECT * FROM books WHERE book_id = $1 AND user_id = $2`,
+      [book_id, user_id]
+    );
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+  if (book.rowCount === 0) {
+    return res.status(404).json({
+      message: "Not found",
+    });
+  }
+  return res.status(200).json({
+    data: book.rows[0],
+  });
 });
 
 booksRouter.put("/update", async (req, res) => {
