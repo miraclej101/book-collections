@@ -1,0 +1,6 @@
+.bg_image {
+    background-image: url('../assets/books-stack_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }

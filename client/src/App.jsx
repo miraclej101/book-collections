@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import CollectionPage from './pages/CollectionPage';
 import BookPage from './pages/BookPage';
+import AddBookPage from './pages/AddBookPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/register" element={<RegisterPage/>} />
           <Route path="/collection" element={<CollectionPage/>} />
           <Route path="/collection/update/:bookId" element={<BookPage />} />
+          <Route path="/collection/add" element={<AddBookPage />} />
           <Route path="*" element={<LoginPage/>} />
         </Routes>
         </AuthProvider>
