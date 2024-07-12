@@ -16,15 +16,20 @@ export function AuthProvider({children}) {
   const login = async (data) => {
     //  Function `login` ทำหน้าที่สร้าง Request ไปที่ API user/login
     //  ที่สร้างไว้ด้านบนพร้อมกับ Body ที่กำหนดไว้ในตารางที่ออกแบบไว้
-    const result = await axios.post("http://localhost:4000/user/login", data);
-    const token =result.data.token;
-    localStorage.setItem("token", token);
-    const userDataFromToken = jwtDecode(token);
-    setState({
-      ...state,
-      user: userDataFromToken,
-    });
-    return result.status;
+    try {
+        const result = await axios.post("http://localhost:4000/user/login", data);
+        const token =result.data.token;
+        localStorage.setItem("token", token);
+        const userDataFromToken = jwtDecode(token);
+        setState({
+          ...state,
+          user: userDataFromToken,
+        });
+        return result;
+    } catch (error) {
+      console.log("error : ",error);
+      return error;
+    };
    // navigate("/");
   };
 

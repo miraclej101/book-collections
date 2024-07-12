@@ -1,6 +1,11 @@
+import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import Header from "../components/Header";
+import { useAuth } from "../contexts/authentication";
+import axios from "axios";
+
 export default function CollectionPage() {
+    /*
     const books = [
         {
             book_id: 1,
@@ -20,7 +25,13 @@ export default function CollectionPage() {
             publisher: "Little, Brown and Company",
             release_year: 1951
         }
-    ] 
+    ] */
+   const [books, setBooks] = useState([]);
+    const { state } = useAuth();
+   useEffect(() => {
+    const user_id = state.user.id;
+    a
+   },[])
 
     return (
         <>

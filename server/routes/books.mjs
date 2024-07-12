@@ -82,12 +82,32 @@
  *     responses:
  *       201:
  *         description: Book created successfully
+ *         content:
+ *              application/json:
+ *                  schema:
+ *                     example:
+ *                        message: Book created successfully
  *       400:
  *         description: Required fields are missing.
+ *         content:
+ *              application/json:
+ *                  schema:
+ *                     example:
+ *                        message: Required fields are missing.
  *       404:
  *         description: Not found
+ *         content:
+ *              application/json:
+ *                  schema:
+ *                     example:
+ *                        message: Not found
  *       500:
  *         description: Internal Server Error
+ *         content:
+ *              application/json:
+ *                  schema:
+ *                     example:
+ *                        message: Internal Server Error
  * /books/{user_id}:
  *   get:
  *     summary: Get all books of a user
@@ -105,11 +125,19 @@
  *          content:
  *              application/json:
  *                  schema:
- *                      type: array
- *                      items:
- *                          $ref: '#/components/schemas/Books'
+ *                     type: object
+ *                     properties: 
+ *                         data:
+ *                             type: array
+ *                             items:
+ *                              $ref: '#/components/schemas/Books'
  *      500:
  *          description: Internal Server Error
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                     example:
+ *                        message: Internal Server Error
  * /books/update:
  *   put:
  *     summary: Update a book
@@ -131,12 +159,32 @@
  *     responses:
  *      200:
  *         description: Book updated successfully
+ *         content:
+ *              application/json:
+ *                  schema:
+ *                     example:
+ *                        message: Book updated successfully
  *      400:
  *         description: User id and book id are required.
+ *         content:
+ *              application/json:
+ *                  schema:
+ *                     example:
+ *                        message: User id and book id are required.
  *      404:
- *        description: Not found
+ *         description: Not found
+ *         content:
+ *              application/json:
+ *                  schema:
+ *                     example:
+ *                        message: Not found
  *      500:
- *        description: Internal Server Error
+ *         description: Internal Server Error
+ *         content:
+ *              application/json:
+ *                  schema:
+ *                     example:
+ *                        message: Internal Server Error
  * /books/delete:
  *    delete:
  *     summary: Delete a book
@@ -149,15 +197,35 @@
  *             example:
  *              user_id: 1
  *              book_id: 1
- *    responses:
+ *     responses:
  *      200:
  *        description: Book deleted successfully
+ *        content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: Book deleted successfully
  *      400:
  *        description: User id and book id are required.
+ *        content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: User id and book id are required.
  *      404:
  *        description: Not found
+ *        content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: Not found
  *      500:
- *       description: Internal Server Error
+ *        description: Internal Server Error
+ *        content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: Internal Server Error
  */
 
 import { Router } from "express";

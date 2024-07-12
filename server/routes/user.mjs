@@ -72,10 +72,25 @@
  *     responses:
  *       201:
  *         description: User created successfully.
+ *         content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: User created successfully.
  *       400:
  *         description: Bad request
+ *         content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: Bad request
  *       500:
  *         description: Internal Server Error
+ *         content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: Internal Server Error
  * /user/login:
  *   post:
  *     summary: Login to the application
@@ -91,10 +106,26 @@
  *     responses:
  *       200:
  *         description: Login successfully
+ *         content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: Login successfully
+ *                  token: eyJ
  *       401:
  *         description: Invalid username or password
+ *         content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: Invalid username or password
  *       500:
  *         description: Internal Server Error
+ *         content:
+ *            application/json:
+ *              schema:
+ *                example:
+ *                  message: Internal Server Error
  */
 
 import { Router } from "express";
