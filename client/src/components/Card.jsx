@@ -11,7 +11,7 @@ export default function Card(props) {
           <em>{book.category}</em><br />
           <span className="text-muted">{book.publisher}</span><br />
           <span className="fw-semibold">{book.release_year}</span>
-          <p>{book.description}</p>
+          <p className="text-break">{book.description}</p>
         </div>
       </div>
 
