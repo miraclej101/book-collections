@@ -1,18 +1,35 @@
 import Navbar from "../components/Navbar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function RegisterPage() {
 
+    const navigate = useNavigate();
     const [user, setUser] = useState({
         username: "",
         password: "",
         firstname: "",
         lastname: "",
     });
+    const [message, setMessage] = useState("");
+    const [textType, setTextType] = useState("text-success");
     
-    const handleSubmit = (e) => {
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:4000/user/register", user).then((response) => {
+            setMessage(response.data.message);
+            setTextType("text-success");
+            setTimeout(() => {
+                navigate("/login");
+            }, 3000);
+        })
+        .catch((error) => {
+            setMessage(error.response.data.message);
+            setTextType("text-danger");
+        })
     };
+        
 
   return (
     <>
@@ -37,15 +54,10 @@ export default function RegisterPage() {
                     placeholder="First name"
                     required="required"
                     aria-describedby="firstnameValidation"
-                    onChange={(e) => setUser({...user, fir})}
+                    onChange={(e) => setUser({...user, firstname: e.target.value})}
+                    onBlur={() => setMessage("")}
                   />
                   <label htmlFor="firstname">First name</label>
-                  <div
-                    id="firstnameValidation"
-                    className="invalid-feedback"
-                  >
-                    First name is required.
-                  </div>
                 </div>
                 <div className="form-floating mb-3">
                   <input
@@ -55,14 +67,10 @@ export default function RegisterPage() {
                     placeholder="Last name"
                     required="required"
                     aria-describedby="lastnameValidation"
+                    onChange={(e) => setUser({...user, lastname: e.target.value})}
+                    onBlur={() => setMessage("")}
                   />
                   <label htmlFor="lastname">Last name</label>
-                  <div
-                  id="lastnameValidation"
-                    className="invalid-feedback"
-                  >
-                    Last name is required.
-                  </div>
                 </div>
                 <div className="form-floating mb-3">
                   <input
@@ -72,14 +80,10 @@ export default function RegisterPage() {
                     placeholder="Username"
                     required="required"
                     aria-describedby="usernameValidation"
+                    onChange={(e) => setUser({...user, username: e.target.value})}
+                    onBlur={() => setMessage("")}
                   />
                   <label htmlFor="username">Username</label>
-                  <div
-                  id="usernameValidation"
-                    className="invalid-feedback"
-                  >
-                    Username is required.
-                  </div>
                 </div>
                 <div className="form-floating mb-3">
                   <input
@@ -89,24 +93,13 @@ export default function RegisterPage() {
                     placeholder="Password"
                     required="required"
                     aria-describedby="passwordValidation"
+                    onChange={(e) => setUser({...user, password: e.target.value})}
+                    onBlur={() => setMessage("")}
                   />
-                  <label htmlFor ="password">Password</label>
-                  <div
-                  id="passwordValidation"
-                    className="invalid-feedback"
-                  >
-                    Password is required.
-                  </div>
+                  <label htmlFor ="password">Password</label>                  
                 </div>
-                <div className="d-none" id="submitSuccessMessage">
-                  <div className="text-center mb-3">
-                    <div className="fw-bolder">Form submission successful!</div>
-                  </div>
-                </div>
-                <div className="d-none" id="submitErrorMessage">
-                  <div className="text-center text-danger mb-3">
-                    Error Register!
-                  </div>
+                <div className={`${textType} mb-3 text-center`}>
+                        {message}
                 </div>
                 <div className="d-grid">
                   <button
