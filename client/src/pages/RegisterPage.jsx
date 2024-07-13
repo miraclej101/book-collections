@@ -1,6 +1,9 @@
+import Navbar from "../components/Navbar";
+
 export default function RegisterPage() {
   return (
-   
+    <>
+      <Navbar />
       <div className="row justify-content-center position-absolute top-50 start-50 translate-middle w-75">
         <div className="col-lg-8">
           <div className="card border-0 rounded-3 shadow-lg">
@@ -105,6 +108,6 @@ export default function RegisterPage() {
           </div>
         </div>
       </div>
-    
+    </>
   );
 }

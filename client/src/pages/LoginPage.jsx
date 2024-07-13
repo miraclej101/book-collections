@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/authentication";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 export default function LoginPage() {
     const style = {
@@ -32,6 +33,7 @@ export default function LoginPage() {
    
   return (
     <div className="container mt-5" style={style}>
+      <Navbar />
       <div className="row position-absolute top-50 start-50 translate-middle w-75">
         <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
           <div className="card border-0 shadow rounded-3 my-5">

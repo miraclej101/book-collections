@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/authentication";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const { isAuthenticated, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  }
   
   return (
     <nav
@@ -40,7 +47,7 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <button className="btn btn-outline-danger" onClick={logout} >
+                <button className="btn btn-outline-danger" onClick={handleLogout} >
                   Sign out
                 </button>
               </li>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../contexts/authentication";
 import style from "./AddBookPage.module.css";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 export default function AddBookPage() {
   const { state } = useAuth();
@@ -44,6 +45,8 @@ const handleMessages = () => {
 };
 
   return (
+    <>
+    <Navbar />
     <div className="container-fluid px-5 pt-5 my-5">
       <div className="row justify-content-center">
         <div className="col-xl-10">
@@ -178,5 +181,6 @@ const handleMessages = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }

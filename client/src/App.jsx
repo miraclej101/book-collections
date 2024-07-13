@@ -14,7 +14,6 @@ function App() {
     <div className='d-block'>
       <BrowserRouter>
         <AuthProvider>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage/>} />

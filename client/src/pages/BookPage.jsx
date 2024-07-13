@@ -3,6 +3,7 @@ import style from "./BookPage.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../contexts/authentication";
+import Navbar from "../components/Navbar";
 
 export default function BookPage() {
   const { bookId } = useParams();
@@ -49,6 +50,8 @@ export default function BookPage() {
 }
 
   return (
+    <>
+    <Navbar />
     <div className="container-fluid px-5 pt-5 my-5">
       <div className="row justify-content-center">
         <div className="col-xl-10">
@@ -165,5 +168,6 @@ export default function BookPage() {
         </div>
       </div>
     </div>
+   </> 
   );
 }

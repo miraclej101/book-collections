@@ -437,8 +437,10 @@ booksRouter.put("/update", async (req, res) => {
   }
 });
 
-booksRouter.delete("/delete", async (req, res) => {
-  const { user_id, book_id } = req.body;
+booksRouter.delete("/delete/:user_id/:book_id", async (req, res) => {
+//  const user_id = req.params.user_id;
+//  const book_id = req.params.book_id;
+  console.log("user_id :", user_id, " book_id: ", book_id);
 
   if (!user_id || !book_id) {
     return res.status(400).json({
