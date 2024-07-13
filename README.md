@@ -14,7 +14,6 @@
    - Git for version control
    - API Document Swagger : localhost:4000/api-docs
 4. #### Frontend (React) - Optional
-    Note : It has not finished yet
    - Create User Interface
       - Registration
       - Sign in
@@ -25,3 +24,16 @@
    - State management (Context API)
    - Form validation
    - Responsive design
+
+5. #### Examples of UI
+   <img src="./Screens/Screenshot_Home_Book_Collection.jpeg" alt="Home screen" width="800"/> <br><br>
+   <img src="./Screens/Screenshot_Register_User.jpeg" alt="Sign up screen" width="800"/> <br><br>
+   <img src="./Screens/Screenshot_SignIn_User.jpeg" alt="Sign in screen" width="800"/> <br><br>
+   <img src="./Screens/Screenshot_Home_Auth.jpeg" alt="Home after successful login" width="800"/> <br><br>
+   <img src="./Screens/Screenshot_Add_a_Book.jpeg" alt="Add a book screen" width="800"/> <br><br>
+   <img src="./Screens/Screenshot_Add_a_Book_success.jpeg" alt="Add a book success screen" width="800"/> <br><br>
+   <img src="./Screens/Screenshot_My_Collection.jpeg" alt="My Collection screen" width="800"/> <br><br>
+   <img src="./Screens/Screenshot_Update_Book_success.jpeg" alt="Update a book screen" width="800"/> <br><br>
+   <img src="./Screens/Screenshot_Remove_Book_success.jpeg" alt="Remove a book screen" width="800"/> <br><br>
+
+
