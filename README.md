@@ -13,7 +13,7 @@
    - Use Express to create API
    - Git for version control
    - API Document Swagger : localhost:4000/api-docs
-4. #### Frontend (React) - Optional
+4. #### Frontend (React)
    - Create User Interface
       - Registration
       - Sign in
