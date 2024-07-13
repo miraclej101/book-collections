@@ -1,6 +1,19 @@
 import Navbar from "../components/Navbar";
+import { useState } from "react";
 
 export default function RegisterPage() {
+
+    const [user, setUser] = useState({
+        username: "",
+        password: "",
+        firstname: "",
+        lastname: "",
+    });
+    
+    const handleSubmit = (e) => {
+
+    };
+
   return (
     <>
       <Navbar />
@@ -15,15 +28,16 @@ export default function RegisterPage() {
                 </p>
               </div>
 
-              <htmlForm id="contacthtmlForm">
-                <div className="htmlForm-floating mb-3">
+              <form onSubmit={handleSubmit}>
+                <div className="form-floating mb-3">
                   <input
-                    className="htmlForm-control"
+                    className="form-control"
                     id="firstname"
                     type="text"
                     placeholder="First name"
                     required="required"
                     aria-describedby="firstnameValidation"
+                    onChange={(e) => setUser({...user, fir})}
                   />
                   <label htmlFor="firstname">First name</label>
                   <div
@@ -33,9 +47,9 @@ export default function RegisterPage() {
                     First name is required.
                   </div>
                 </div>
-                <div className="htmlForm-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
-                    className="htmlForm-control"
+                    className="form-control"
                     id="lastname"
                     type="text"
                     placeholder="Last name"
@@ -50,9 +64,9 @@ export default function RegisterPage() {
                     Last name is required.
                   </div>
                 </div>
-                <div className="htmlForm-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
-                    className="htmlForm-control"
+                    className="form-control"
                     id="username"
                     type="text"
                     placeholder="Username"
@@ -67,9 +81,9 @@ export default function RegisterPage() {
                     Username is required.
                   </div>
                 </div>
-                <div className="htmlForm-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
-                    className="htmlForm-control"
+                    className="form-control"
                     id="password"
                     type="password"
                     placeholder="Password"
@@ -103,7 +117,7 @@ export default function RegisterPage() {
                     Submit
                   </button>
                 </div>
-              </htmlForm>
+              </form>
             </div>
           </div>
         </div>

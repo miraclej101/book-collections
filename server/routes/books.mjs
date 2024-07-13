@@ -230,14 +230,19 @@
  *    delete:
  *     summary: Delete a book
  *     tags: [Books]
- *     requestBody:
- *      required: true
- *      content:
- *          application/json:
- *           schema:
- *             example:
- *              user_id: 1
- *              book_id: 1
+ *     parameters:
+ *      - in: path
+ *        name: user_id
+ *        schema:
+ *          type: integer
+ *        required: true
+ *        description: The user id who owns the book
+ *      - in: path        
+ *        name:  book_id
+ *        schema:
+ *          type: integer
+ *        required: true
+ *        description: The book id 
  *     responses:
  *      200:
  *        description: Book deleted successfully
@@ -438,9 +443,9 @@ booksRouter.put("/update", async (req, res) => {
 });
 
 booksRouter.delete("/delete/:user_id/:book_id", async (req, res) => {
-//  const user_id = req.params.user_id;
-//  const book_id = req.params.book_id;
-  console.log("user_id :", user_id, " book_id: ", book_id);
+  const user_id = req.params.user_id;
+  const book_id = req.params.book_id;
+//  console.log("user_id :", user_id, " book_id: ", book_id);
 
   if (!user_id || !book_id) {
     return res.status(400).json({
